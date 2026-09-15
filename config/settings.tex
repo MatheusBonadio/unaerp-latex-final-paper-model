@@ -15,7 +15,7 @@
     name=Tabela,
     within=none
 ]{tabela}
-\captionsetup[tabela]{skip=0.3cm}
+\captionsetup[tabela]{skip=0.3cm, hypcap=false}
 
 \newcommand{\sourcetext}{\textbf{Fonte:} Elaborado pelos autores (\workYear).}
 \newcommand{\continuedtext}{Continua na próxima página}
@@ -27,7 +27,7 @@
 \newcommand{\authorssource}{\sourcenote{\sourcetext}}
 
 \newcommand{\continuedrow}[1]{\multicolumn{#1}{r}{\fontsize{10pt}{10pt}\selectfont\textit{\continuedtext}}}
-\newcommand{\sourcerow}[1]{\multicolumn{#1}{c}{\fontsize{10pt}{10pt}\selectfont\sourcetext}}
+\newcommand{\sourcerow}[1]{\multicolumn{#1}{c}{\rule{0pt}{\dimexpr 0.3cm+2ex\relax}\fontsize{10pt}{10pt}\selectfont\sourcetext}}
 
 \setmainfont{Times New Roman}
 
@@ -36,7 +36,8 @@
     top=3cm,
     left=3cm,
     right=2cm,
-    bottom=2cm
+    bottom=2cm,
+    headheight=14.5pt
 }
 
 \setstretch{1.5}
@@ -63,7 +64,7 @@
     {}
 \titlespacing*{\subsection}{0pt}{18pt}{4pt}
 
-\addto\captionsbrazil{%
+\addto\captionsbrazilian{%
     \renewcommand{\tablename}{Quadro}%
     \renewcommand{\listtablename}{Lista de Quadros}%
 }
@@ -120,6 +121,7 @@
 \setlength{\cftbeforetabskip}{0pt}
 
 \makeatletter
+\def\toclevel@tabela{0}
 \def\l@tabela#1#2{%
     {\renewcommand{\cfttabpresnum}{Tabela }\l@table{#1}{#2}}%
 }

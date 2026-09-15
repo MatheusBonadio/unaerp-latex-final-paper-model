@@ -6,17 +6,17 @@
 
 \vspace{10pt}
 
-\textbf{1. Pergunta?}
+\textbf{1. Lorem ipsum dolor sit amet, consectetur adipiscing elit?}
 
 \vspace{4pt}
-( ) Opção 1 \quad ( ) Opção 2 \quad ( ) Opção 3
+( ) Opção 1 \quad ( ) Opção 2 \quad ( ) Opção 3 \quad ( ) Opção 4
 
 \vspace{10pt}
 
-\textbf{2. Pergunta?}
+\textbf{2. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua?}
 
 \vspace{4pt}
-( ) Opção 1 \quad ( ) Opção 2 \quad ( ) Opção 3
+( ) Opção 1 \quad ( ) Opção 2 \quad ( ) Opção 3 \quad ( ) Opção 4
 
 \newpage
 
@@ -24,14 +24,12 @@
 
 \vspace{12pt}
 
-Texto, conforme a Tabela~\ref{tab:appendix}.
-
-\vspace{10pt}
-
-\captionof{tabela}{Título da tabela}\label{tab:appendix}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris, conforme a Tabela~\ref{tab:appendix}.
 
 {\small
-\begin{longtable}{p{14.8cm}r}
+\renewcommand{\LTcaptype}{tabela}
+\begin{longtable}{@{}p{\dimexpr\linewidth-1.5cm-2\tabcolsep\relax}>{\raggedleft\arraybackslash}p{1.5cm}@{}}
+\caption{Título da tabela}\label{tab:appendix} \\
 \toprule
 \endfirsthead
 \toprule
@@ -43,13 +41,17 @@ Texto, conforme a Tabela~\ref{tab:appendix}.
 \sourcerow{2} \\
 \endlastfoot
 
-\multicolumn{2}{l}{\textbf{Pergunta 1}} \\ \midrule
-Opção 1 & 0 \\
-Opção 2 & 0 \\ \midrule
+\multicolumn{2}{l}{\textbf{Lorem ipsum dolor sit amet, consectetur adipiscing elit?}} \\ \midrule
+Opção 1 & 12 \\
+Opção 2 & 8 \\
+Opção 3 & 5 \\
+Opção 4 & 3 \\ \midrule
 
-\multicolumn{2}{l}{\textbf{Pergunta 2}} \\ \midrule
-Opção 1 & 0 \\
-Opção 2 & 0 \\
+\multicolumn{2}{l}{\textbf{Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua?}} \\ \midrule
+Opção 1 & 10 \\
+Opção 2 & 9 \\
+Opção 3 & 6 \\
+Opção 4 & 3 \\
 
 \end{longtable}
 }
