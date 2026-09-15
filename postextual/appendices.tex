@@ -1,0 +1,68 @@
+\newpage
+\setlength{\parindent}{0pt}
+\setstretch{1.0}
+
+\appendixtitle{A}{TÍTULO DO APÊNDICE}
+
+\vspace{10pt}
+
+\textbf{1. Pergunta de escolha única?}
+
+\vspace{4pt}
+( ) Opção 1 \quad ( ) Opção 2 \quad ( ) Opção 3 \quad ( ) Opção 4
+
+\vspace{10pt}
+
+\textbf{2. Pergunta de múltipla escolha? (selecione todas que se aplicam)}
+
+\vspace{4pt}
+{[~]} Opção 1\\
+{[~]} Opção 2\\
+{[~]} Opção 3\\
+{[~]} Outro: \underline{\hspace{5cm}}
+
+\vspace{10pt}
+
+\textbf{3. Pergunta em escala de 1 a 5?}
+
+\vspace{4pt}
+Extremo inferior \quad ( ) 1 \quad ( ) 2 \quad ( ) 3 \quad ( ) 4 \quad ( ) 5 \quad Extremo superior
+
+\newpage
+
+\appendixtitle{B}{TÍTULO DO APÊNDICE}
+
+\vspace{12pt}
+
+A Tabela \ref{tab:survey} apresenta texto do apêndice.
+
+\vspace{10pt}
+
+\renewcommand{\tablename}{Tabela}
+\setcounter{table}{0}
+\captionof{table}{Título da Tabela}\label{tab:survey}
+
+{\small
+\begin{longtable}{p{14.8cm}r}
+\toprule
+\endfirsthead
+\toprule
+\endhead
+\midrule
+\continuedrow{2} \\
+\endfoot
+\bottomrule
+\sourcerow{2} \\
+\endlastfoot
+
+\multicolumn{2}{l}{\textbf{Pergunta 1}} \\ \midrule
+Opção 1 & 0 \\
+Opção 2 & 0 \\
+Opção 3 & 0 \\ \midrule
+
+\multicolumn{2}{l}{\textbf{Pergunta 2}} \\ \midrule
+Opção 1 & 0 \\
+Opção 2 & 0 \\
+
+\end{longtable}
+}

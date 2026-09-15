@@ -1,0 +1,152 @@
+\captionsetup{
+    font={footnotesize},
+    labelfont={bf},
+    skip=0.3cm,
+    justification=centering,
+    singlelinecheck=true
+}
+\captionsetup[table]{skip=0.3cm}
+\captionsetup[figure]{skip=0.3cm}
+\captionsetup[longtable]{skip=0.3cm}
+
+\newcommand{\sourcetext}{\textbf{Fonte:} Elaborado pelos autores (\workYear).}
+\newcommand{\continuedtext}{Continua na próxima página}
+
+\providecommand{\sourcenote}[1]{%
+    \par\vspace{0.3cm}%
+    {\centering\fontsize{10pt}{10pt}\selectfont #1\par}%
+}
+\newcommand{\authorssource}{\sourcenote{\sourcetext}}
+
+\newcommand{\continuedrow}[1]{\multicolumn{#1}{r}{\fontsize{10pt}{10pt}\selectfont\textit{\continuedtext}}}
+\newcommand{\sourcerow}[1]{\multicolumn{#1}{c}{\fontsize{10pt}{10pt}\selectfont\sourcetext}}
+
+\setmainfont{Times New Roman}
+
+\geometry{
+    a4paper,
+    top=3cm,
+    left=3cm,
+    right=2cm,
+    bottom=2cm
+}
+
+\setstretch{1.5}
+\setlength{\parindent}{1.25cm}
+
+\titleformat{\chapter}[hang]
+    {\normalfont\fontsize{14}{16}\bfseries\uppercase}
+    {\thechapter}
+    {1em}
+    {}
+\titlespacing*{\chapter}{0pt}{12pt}{12pt}
+
+\titleformat{\section}[hang]
+    {\normalfont\fontsize{12}{12}\bfseries}
+    {\thesection}
+    {1em}
+    {}
+\titlespacing*{\section}{0pt}{24pt}{6pt}
+
+\titleformat{\subsection}[hang]
+    {\normalfont\fontsize{12}{12}\bfseries}
+    {\thesubsection}
+    {1em}
+    {}
+\titlespacing*{\subsection}{0pt}{18pt}{4pt}
+
+\addto\captionsbrazil{%
+    \renewcommand{\tablename}{Quadro}%
+    \renewcommand{\listtablename}{Lista de Quadros}%
+}
+
+\renewcommand{\contentsname}{}
+\setlength{\cftbeforetoctitleskip}{0pt}
+\setlength{\cftaftertoctitleskip}{0pt}
+\renewcommand{\cfttoctitlefont}{\normalfont\fontsize{0.1pt}{0pt}\selectfont}
+
+\renewcommand{\cftchapfont}{\normalfont\fontsize{12}{12}\bfseries\selectfont}
+\renewcommand{\cftchappagefont}{\normalfont\fontsize{12}{12}\bfseries\selectfont}
+
+\renewcommand{\cftsecfont}{\normalfont\fontsize{12}{12}\selectfont}
+\renewcommand{\cftsecpagefont}{\normalfont\fontsize{12}{12}\selectfont}
+
+\renewcommand{\cftsubsecfont}{\normalfont\fontsize{12}{12}\selectfont}
+\renewcommand{\cftsubsecpagefont}{\normalfont\fontsize{12}{12}\selectfont}
+
+\renewcommand{\cftchapdotsep}{\cftdotsep}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftchapdotsep}}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
+
+\setlength{\cftbeforechapskip}{0pt}
+\setlength{\cftbeforesecskip}{0pt}
+\setlength{\cftbeforesubsecskip}{0pt}
+
+\renewcommand{\listfigurename}{}
+\renewcommand{\listtablename}{}
+
+\setlength{\cftbeforeloftitleskip}{0pt}
+\setlength{\cftafterloftitleskip}{0pt}
+\renewcommand{\cftloftitlefont}{\normalfont\fontsize{0.1pt}{0pt}\selectfont}
+
+\setlength{\cftbeforelottitleskip}{0pt}
+\setlength{\cftafterlottitleskip}{0pt}
+\renewcommand{\cftlottitlefont}{\normalfont\fontsize{0.1pt}{0pt}\selectfont}
+
+\renewcommand{\cftfigleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cfttableader}{\cftdotfill{\cftdotsep}}
+
+\renewcommand{\cftfigfont}{\normalfont\fontsize{12}{12}\selectfont}
+\renewcommand{\cftfigpagefont}{\normalfont\fontsize{12}{12}\selectfont}
+\renewcommand{\cfttabfont}{\normalfont\fontsize{12}{12}\selectfont}
+\renewcommand{\cfttabpagefont}{\normalfont\fontsize{12}{12}\selectfont}
+
+\renewcommand{\cftfigpresnum}{Figura }
+\setlength{\cftfignumwidth}{5.5em}
+
+\renewcommand{\cfttabpresnum}{Quadro }
+\setlength{\cfttabnumwidth}{5.5em}
+
+\setlength{\cftbeforefigskip}{0pt}
+\setlength{\cftbeforetabskip}{0pt}
+
+\providecommand{\listtitle}[1]{%
+    \begin{center}%
+        \fontsize{14pt}{14pt}\selectfont\bfseries #1%
+    \end{center}%
+    \vspace{4pt}%
+}
+
+\newcommand{\unnumberedtitle}[1]{%
+    \begin{center}%
+        \fontsize{14pt}{14pt}\selectfont\bfseries #1\\[24pt]%
+    \end{center}%
+}
+
+\newcommand{\appendixtitle}[2]{%
+    \addcontentsline{toc}{chapter}{APÊNDICE #1}%
+    \begin{center}%
+        \fontsize{14pt}{14pt}\selectfont\bfseries APÊNDICE #1\\[12pt]%
+        \fontsize{12pt}{12pt}\selectfont #2%
+    \end{center}%
+}
+
+\newcommand{\examinerfield}{%
+    \noindent Prof. \rule{12cm}{0.4pt}\\%
+    Instituição: \rule{10.5cm}{0.4pt}\par%
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyhead[R]{\thepage}
+    \renewcommand{\headrulewidth}{0pt}
+}
+
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}

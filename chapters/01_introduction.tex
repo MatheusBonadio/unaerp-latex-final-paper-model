@@ -1,0 +1,61 @@
+\chapter{INTRODUÇÃO}
+
+Texto do parágrafo com citação indireta (SOBRENOME, ano). Segundo Sobrenome (ano, p. 00), texto com citação direta curta ``entre aspas''.
+
+\section{Seção}
+
+Texto da seção, com referência à Figura \ref{fig:example}, ao Quadro~\ref{frame:simple} e à Seção~\ref{sec:subsection_example}.
+
+\begin{figure}[H]
+    \centering
+    \caption{Título da figura.}
+    \label{fig:example}
+    \includegraphics[width=0.9\textwidth]{images/example.png}
+    \authorssource
+\end{figure}
+
+\subsection{Subseção}\label{sec:subsection_example}
+
+Texto da subseção com lista:
+
+\begin{itemize}
+    \item Item da lista;
+    \item Item da lista.
+\end{itemize}
+
+\section{Quadros}
+
+Quadro simples, apresentado no Quadro~\ref{frame:simple}.
+
+\begin{table}[H]
+\centering
+\caption{Título do quadro simples}
+\label{frame:simple}
+\begin{tabular}{|c|p{10cm}|}
+\hline
+\textbf{Coluna 1} & \textbf{Coluna 2} \\ \hline
+1 & Conteúdo \\ \hline
+2 & Conteúdo \\ \hline
+\end{tabular}
+
+\authorssource
+\end{table}
+
+Quadro com células agrupadas, apresentado no Quadro~\ref{frame:grouped}.
+
+\begin{table}[H]
+\centering
+\caption{Título do quadro com células agrupadas}
+\label{frame:grouped}
+\begin{tabular}{|l|p{7cm}|l|}
+\hline
+\textbf{Tipo} & \textbf{Descrição} & \textbf{Situação} \\ \hline
+\multirow{3}{*}{Equipe} & \authorOne & Disponível \\ \cline{2-3}
+ & \authorTwo & Disponível \\ \cline{2-3}
+ & \authorThree & Disponível \\ \hline
+\multirow{2}{*}{Grupo} & Item & Situação \\ \cline{2-3}
+ & Item & Situação \\ \hline
+\end{tabular}
+
+\authorssource
+\end{table}

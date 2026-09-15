@@ -1,0 +1,25 @@
+\documentclass[a4paper, 12pt]{report}
+
+\input{config/packages}
+\input{config/settings}
+\input{config/metadata}
+
+\begin{document}
+
+\input{pretextual/cover}
+\input{pretextual/title_page}
+\input{pretextual/approval_sheet}
+\input{pretextual/dedication_acknowledgments_epigraph}
+\input{pretextual/abstracts}
+\input{pretextual/lists_and_contents}
+
+\newpage
+\setcounter{page}{3}
+
+\input{chapters/01_introduction}
+\input{chapters/02_development}
+
+\input{postextual/references}
+\input{postextual/appendices}
+
+\end{document}
