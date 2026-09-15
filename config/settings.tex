@@ -9,6 +9,14 @@
 \captionsetup[figure]{skip=0.3cm}
 \captionsetup[longtable]{skip=0.3cm}
 
+\DeclareFloatingEnvironment[
+    fileext=lotb,
+    listname={Lista de Tabelas},
+    name=Tabela,
+    within=none
+]{tabela}
+\captionsetup[tabela]{skip=0.3cm}
+
 \newcommand{\sourcetext}{\textbf{Fonte:} Elaborado pelos autores (\workYear).}
 \newcommand{\continuedtext}{Continua na próxima página}
 
@@ -110,6 +118,13 @@
 
 \setlength{\cftbeforefigskip}{0pt}
 \setlength{\cftbeforetabskip}{0pt}
+
+\makeatletter
+\def\l@tabela#1#2{%
+    {\renewcommand{\cfttabpresnum}{Tabela }\l@table{#1}{#2}}%
+}
+\newcommand{\listofdatatables}{\@starttoc{lotb}}
+\makeatother
 
 \providecommand{\listtitle}[1]{%
     \begin{center}%

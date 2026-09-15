@@ -1,60 +1,55 @@
 \chapter{INTRODUÇÃO}
 
-Texto do parágrafo com citação indireta (SOBRENOME, ano). Segundo Sobrenome (ano, p. 00), texto com citação direta curta ``entre aspas''.
+Texto (SOBRENOME, ano).
 
 \section{Seção}
 
-Texto da seção, com referência à Figura \ref{fig:example}, ao Quadro~\ref{frame:simple} e à Seção~\ref{sec:subsection_example}.
+Texto, conforme a Figura~\ref{fig:example_1}.
 
 \begin{figure}[H]
     \centering
     \caption{Título da figura.}
-    \label{fig:example}
+    \label{fig:example_1}
     \includegraphics[width=0.9\textwidth]{images/example.png}
     \authorssource
 \end{figure}
 
-\subsection{Subseção}\label{sec:subsection_example}
+\subsection{Subseção}
 
-Texto da subseção com lista:
+Texto:
 
 \begin{itemize}
-    \item Item da lista;
-    \item Item da lista.
+    \item Item;
+    \item Item.
 \end{itemize}
 
-\section{Quadros}
+\section{Seção}
 
-Quadro simples, apresentado no Quadro~\ref{frame:simple}.
+Texto, conforme a Tabela~\ref{tab:example} e o Quadro~\ref{frame:example_1}.
+
+\begin{center}
+\captionof{tabela}{Título da tabela}
+\label{tab:example}
+\begin{tabular}{lrr}
+\toprule
+\textbf{Coluna 1} & \textbf{Coluna 2} & \textbf{Coluna 3} \\
+\midrule
+Linha 1 & 0 & 0,0\% \\
+Linha 2 & 0 & 0,0\% \\
+\bottomrule
+\end{tabular}
+\authorssource
+\end{center}
 
 \begin{table}[H]
 \centering
-\caption{Título do quadro simples}
-\label{frame:simple}
+\caption{Título do quadro}
+\label{frame:example_1}
 \begin{tabular}{|c|p{10cm}|}
 \hline
 \textbf{Coluna 1} & \textbf{Coluna 2} \\ \hline
-1 & Conteúdo \\ \hline
-2 & Conteúdo \\ \hline
-\end{tabular}
-
-\authorssource
-\end{table}
-
-Quadro com células agrupadas, apresentado no Quadro~\ref{frame:grouped}.
-
-\begin{table}[H]
-\centering
-\caption{Título do quadro com células agrupadas}
-\label{frame:grouped}
-\begin{tabular}{|l|p{7cm}|l|}
-\hline
-\textbf{Tipo} & \textbf{Descrição} & \textbf{Situação} \\ \hline
-\multirow{3}{*}{Equipe} & \authorOne & Disponível \\ \cline{2-3}
- & \authorTwo & Disponível \\ \cline{2-3}
- & \authorThree & Disponível \\ \hline
-\multirow{2}{*}{Grupo} & Item & Situação \\ \cline{2-3}
- & Item & Situação \\ \hline
+1 & Texto \\ \hline
+2 & Texto \\ \hline
 \end{tabular}
 
 \authorssource
