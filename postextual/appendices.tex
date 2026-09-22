@@ -1,10 +1,9 @@
 \newpage
+\begingroup
 \setlength{\parindent}{0pt}
 \setstretch{1.0}
 
-\appendixtitle{A}{TÍTULO DO APÊNDICE}
-
-\vspace{10pt}
+\appendixtitle{A}{Título do apêndice}
 
 \textbf{1. Lorem ipsum dolor sit amet, consectetur adipiscing elit?}
 
@@ -20,38 +19,100 @@
 
 \newpage
 
-\appendixtitle{B}{TÍTULO DO APÊNDICE}
-
-\vspace{12pt}
+\appendixtitle{B}{Título do apêndice}
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris, conforme a Tabela~\ref{tab:appendix}.
 
 {\small
 \renewcommand{\LTcaptype}{tabela}
-\begin{longtable}{@{}p{\dimexpr\linewidth-1.5cm-2\tabcolsep\relax}>{\raggedleft\arraybackslash}p{1.5cm}@{}}
+\begin{longtable}{@{}p{\dimexpr\linewidth-2.5cm-2\tabcolsep\relax}>{\raggedleft\arraybackslash}p{2.5cm}@{}}
 \caption{Título da tabela}\label{tab:appendix} \\
+\continuesmark
 \toprule
+\textbf{Resposta} & \textbf{Quantidade} \\
+\midrule
 \endfirsthead
 \toprule
-\endhead
+\textbf{Resposta} & \textbf{Quantidade} \\
 \midrule
-\continuedrow{2} \\
+\endhead
 \endfoot
 \bottomrule
 \sourcerow{2} \\
 \endlastfoot
 
-\multicolumn{2}{l}{\textbf{Lorem ipsum dolor sit amet, consectetur adipiscing elit?}} \\ \midrule
-Opção 1 & 12 \\
-Opção 2 & 8 \\
-Opção 3 & 5 \\
-Opção 4 & 3 \\ \midrule
+\multicolumn{2}{@{}l@{}}{\textbf{Lorem ipsum dolor sit amet, consectetur adipiscing elit?}} \\
+\hspace{1em}Opção 1 & 12 \\
+\hspace{1em}Opção 2 & 8 \\
+\hspace{1em}Opção 3 & 5 \\
+\hspace{1em}Opção 4 & 3 \\ \addlinespace
 
-\multicolumn{2}{l}{\textbf{Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua?}} \\ \midrule
-Opção 1 & 10 \\
-Opção 2 & 9 \\
-Opção 3 & 6 \\
-Opção 4 & 3 \\
+\multicolumn{2}{@{}l@{}}{\textbf{Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua?}} \\
+\hspace{1em}Opção 1 & 10 \\
+\hspace{1em}Opção 2 & 9 \\
+\hspace{1em}Opção 3 & 6 \\
+\hspace{1em}Opção 4 & 3 \\ \addlinespace
+
+\multicolumn{2}{@{}l@{}}{\textbf{Ut enim ad minim veniam, quis nostrud exercitation ullamco?}} \\
+\hspace{1em}Opção 1 & 7 \\
+\hspace{1em}Opção 2 & 11 \\
+\hspace{1em}Opção 3 & 6 \\
+\hspace{1em}Opção 4 & 4 \\ \addlinespace
+
+\multicolumn{2}{@{}l@{}}{\textbf{Duis aute irure dolor in reprehenderit in voluptate velit?}} \\
+\hspace{1em}Opção 1 & 9 \\
+\hspace{1em}Opção 2 & 9 \\
+\hspace{1em}Opção 3 & 7 \\
+\hspace{1em}Opção 4 & 3 \\ \addlinespace
+
+\multicolumn{2}{@{}l@{}}{\textbf{Excepteur sint occaecat cupidatat non proident?}} \\
+\hspace{1em}Opção 1 & 14 \\
+\hspace{1em}Opção 2 & 6 \\
+\hspace{1em}Opção 3 & 5 \\
+\hspace{1em}Opção 4 & 3 \\ \addlinespace
+
+\multicolumn{2}{@{}l@{}}{\textbf{Curabitur pretium tincidunt lacus, nulla gravida orci?}} \\
+\hspace{1em}Opção 1 & 6 \\
+\hspace{1em}Opção 2 & 10 \\
+\hspace{1em}Opção 3 & 8 \\
+\hspace{1em}Opção 4 & 4 \\ \addlinespace
+
+\multicolumn{2}{@{}l@{}}{\textbf{Nullam varius, turpis et commodo pharetra, est eros bibendum?}} \\
+\hspace{1em}Opção 1 & 11 \\
+\hspace{1em}Opção 2 & 7 \\
+\hspace{1em}Opção 3 & 6 \\
+\hspace{1em}Opção 4 & 4 \\ \addlinespace
+
+\multicolumn{2}{@{}l@{}}{\textbf{Integer in mauris eu nibh euismod gravida?}} \\
+\hspace{1em}Opção 1 & 8 \\
+\hspace{1em}Opção 2 & 12 \\
+\hspace{1em}Opção 3 & 5 \\
+\hspace{1em}Opção 4 & 3 \\ \addlinespace
+
+\multicolumn{2}{@{}l@{}}{\textbf{Donec lobortis risus a elit, etiam tempor?}} \\
+\hspace{1em}Opção 1 & 13 \\
+\hspace{1em}Opção 2 & 7 \\
+\hspace{1em}Opção 3 & 4 \\
+\hspace{1em}Opção 4 & 4 \\ \addlinespace
+
+\multicolumn{2}{@{}l@{}}{\textbf{Fusce aliquet pede non pede, suspendisse dapibus lorem?}} \\
+\hspace{1em}Opção 1 & 9 \\
+\hspace{1em}Opção 2 & 8 \\
+\hspace{1em}Opção 3 & 8 \\
+\hspace{1em}Opção 4 & 3 \\ \addlinespace
+
+\multicolumn{2}{@{}l@{}}{\textbf{Donec hendrerit, felis et imperdiet euismod, purus ipsum?}} \\
+\hspace{1em}Opção 1 & 10 \\
+\hspace{1em}Opção 2 & 10 \\
+\hspace{1em}Opção 3 & 5 \\
+\hspace{1em}Opção 4 & 3 \\ \addlinespace
+
+\multicolumn{2}{@{}l@{}}{\textbf{Aliquam erat volutpat, sed at lorem in nunc porta tristique?}} \\
+\hspace{1em}Opção 1 & 12 \\
+\hspace{1em}Opção 2 & 9 \\
+\hspace{1em}Opção 3 & 4 \\
+\hspace{1em}Opção 4 & 3 \\
 
 \end{longtable}
 }
+\endgroup

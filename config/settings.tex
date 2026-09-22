@@ -1,6 +1,7 @@
 \captionsetup{
     font={footnotesize},
     labelfont={bf},
+    labelsep=endash,
     skip=0.3cm,
     justification=centering,
     singlelinecheck=true
@@ -17,19 +18,21 @@
 ]{tabela}
 \captionsetup[tabela]{skip=0.3cm, hypcap=false}
 
-\newcommand{\sourcetext}{\textbf{Fonte:} Elaborado pelos autores (\workYear).}
-\newcommand{\continuedtext}{Continua na próxima página}
+\AtBeginEnvironment{figure}{\setstretch{1}}
+\AtBeginEnvironment{table}{\setstretch{1}}
+\AtBeginEnvironment{tabela}{\setstretch{1}}
 
 \providecommand{\sourcenote}[1]{%
     \par\vspace{0.3cm}%
-    {\centering\fontsize{10pt}{10pt}\selectfont #1\par}%
+    {\centering\setstretch{1}\fontsize{10pt}{12pt}\selectfont #1\par}%
 }
-\newcommand{\authorssource}{\sourcenote{\sourcetext}}
+\newcommand{\authorssource}{\sourcenote{\sourceText}}
 
-\newcommand{\continuedrow}[1]{\multicolumn{#1}{r}{\fontsize{10pt}{10pt}\selectfont\textit{\continuedtext}}}
-\newcommand{\sourcerow}[1]{\multicolumn{#1}{c}{\rule{0pt}{\dimexpr 0.3cm+2ex\relax}\fontsize{10pt}{10pt}\selectfont\sourcetext}}
+\newcommand{\sourcerow}[1]{\multicolumn{#1}{c}{\rule{0pt}{\dimexpr 0.3cm+2ex\relax}\fontsize{10pt}{12pt}\selectfont\sourceText}}
 
 \setmainfont{Times New Roman}
+\setmathfont{texgyretermes-math.otf}
+\urlstyle{same}
 
 \geometry{
     a4paper,
@@ -43,79 +46,125 @@
 \setstretch{1.5}
 \setlength{\parindent}{1.25cm}
 
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
 \titleformat{\chapter}[hang]
-    {\normalfont\fontsize{14}{16}\bfseries\uppercase}
+    {\normalfont\bfseries}
     {\thechapter}
-    {1em}
+    {0.3em}
     {}
-\titlespacing*{\chapter}{0pt}{12pt}{12pt}
+\titlespacing*{\chapter}{0pt}{-\baselineskip}{\baselineskip}
 
 \titleformat{\section}[hang]
-    {\normalfont\fontsize{12}{12}\bfseries}
+    {\normalfont}
     {\thesection}
-    {1em}
+    {0.3em}
     {}
-\titlespacing*{\section}{0pt}{24pt}{6pt}
+\titlespacing*{\section}{0pt}{\baselineskip}{\baselineskip}
 
 \titleformat{\subsection}[hang]
-    {\normalfont\fontsize{12}{12}\bfseries}
+    {\normalfont}
     {\thesubsection}
-    {1em}
+    {0.3em}
     {}
-\titlespacing*{\subsection}{0pt}{18pt}{4pt}
+\titlespacing*{\subsection}{0pt}{\baselineskip}{\baselineskip}
+
+\titleformat{\subsubsection}[hang]
+    {\normalfont}
+    {\thesubsubsection}
+    {0.3em}
+    {}
+\titlespacing*{\subsubsection}{0pt}{\baselineskip}{\baselineskip}
+
+\titleformat{\paragraph}[hang]
+    {\normalfont}
+    {\theparagraph}
+    {0.3em}
+    {\itshape}
+\titlespacing*{\paragraph}{0pt}{\baselineskip}{\baselineskip}
+
+\newcommand{\uppercasetitle}[1]{\texorpdfstring{\MakeUppercase{#1}}{#1}}
+
+\NewCommandCopy{\latexchapter}{\chapter}
+\RenewDocumentCommand{\chapter}{s o m}{%
+    \IfBooleanTF{#1}
+        {\latexchapter*{\uppercasetitle{#3}}}
+        {\latexchapter[\uppercasetitle{\IfValueTF{#2}{#2}{#3}}]{\uppercasetitle{#3}}}%
+}
+\NewCommandCopy{\latexsection}{\section}
+\RenewDocumentCommand{\section}{s o m}{%
+    \IfBooleanTF{#1}
+        {\latexsection*{\uppercasetitle{#3}}}
+        {\latexsection[\uppercasetitle{\IfValueTF{#2}{#2}{#3}}]{\uppercasetitle{#3}}}%
+}
 
 \addto\captionsbrazilian{%
     \renewcommand{\tablename}{Quadro}%
-    \renewcommand{\listtablename}{Lista de Quadros}%
+    \renewcommand{\contentsname}{}%
+    \renewcommand{\listfigurename}{}%
+    \renewcommand{\listtablename}{}%
 }
 
-\renewcommand{\contentsname}{}
+\tocloftpagestyle{empty}
+
 \setlength{\cftbeforetoctitleskip}{0pt}
 \setlength{\cftaftertoctitleskip}{0pt}
-\renewcommand{\cfttoctitlefont}{\normalfont\fontsize{0.1pt}{0pt}\selectfont}
+\setlength{\cftbeforeloftitleskip}{0pt}
+\setlength{\cftafterloftitleskip}{0pt}
+\setlength{\cftbeforelottitleskip}{0pt}
+\setlength{\cftafterlottitleskip}{0pt}
 
-\renewcommand{\cftchapfont}{\normalfont\fontsize{12}{12}\bfseries\selectfont}
-\renewcommand{\cftchappagefont}{\normalfont\fontsize{12}{12}\bfseries\selectfont}
+\newlength{\tocnumwidth}
+\settowidth{\tocnumwidth}{1.1.1.1.1\hspace{0.6em}}
+\cftsetindents{chapter}{0pt}{\tocnumwidth}
+\cftsetindents{section}{0pt}{\tocnumwidth}
+\cftsetindents{subsection}{0pt}{\tocnumwidth}
+\cftsetindents{subsubsection}{0pt}{\tocnumwidth}
+\cftsetindents{paragraph}{0pt}{\tocnumwidth}
 
-\renewcommand{\cftsecfont}{\normalfont\fontsize{12}{12}\selectfont}
-\renewcommand{\cftsecpagefont}{\normalfont\fontsize{12}{12}\selectfont}
-
-\renewcommand{\cftsubsecfont}{\normalfont\fontsize{12}{12}\selectfont}
-\renewcommand{\cftsubsecpagefont}{\normalfont\fontsize{12}{12}\selectfont}
+\renewcommand{\cftchapfont}{\normalfont\bfseries}
+\renewcommand{\cftchappagefont}{\normalfont\bfseries}
+\renewcommand{\cftsecfont}{\normalfont}
+\renewcommand{\cftsecpagefont}{\normalfont}
+\renewcommand{\cftsubsecfont}{\normalfont}
+\renewcommand{\cftsubsecpagefont}{\normalfont}
+\renewcommand{\cftsubsubsecfont}{\normalfont}
+\renewcommand{\cftsubsubsecpagefont}{\normalfont}
+\renewcommand{\cftparafont}{\normalfont}
+\renewcommand{\cftparapagefont}{\normalfont}
+\renewcommand{\cftparaaftersnumb}{\itshape}
 
 \renewcommand{\cftchapdotsep}{\cftdotsep}
 \renewcommand{\cftchapleader}{\cftdotfill{\cftchapdotsep}}
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 \renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsubsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftparaleader}{\cftdotfill{\cftdotsep}}
 
 \setlength{\cftbeforechapskip}{0pt}
 \setlength{\cftbeforesecskip}{0pt}
 \setlength{\cftbeforesubsecskip}{0pt}
-
-\renewcommand{\listfigurename}{}
-\renewcommand{\listtablename}{}
-
-\setlength{\cftbeforeloftitleskip}{0pt}
-\setlength{\cftafterloftitleskip}{0pt}
-\renewcommand{\cftloftitlefont}{\normalfont\fontsize{0.1pt}{0pt}\selectfont}
-
-\setlength{\cftbeforelottitleskip}{0pt}
-\setlength{\cftafterlottitleskip}{0pt}
-\renewcommand{\cftlottitlefont}{\normalfont\fontsize{0.1pt}{0pt}\selectfont}
+\setlength{\cftbeforesubsubsecskip}{0pt}
+\setlength{\cftbeforeparaskip}{0pt}
 
 \renewcommand{\cftfigleader}{\cftdotfill{\cftdotsep}}
 \renewcommand{\cfttableader}{\cftdotfill{\cftdotsep}}
 
-\renewcommand{\cftfigfont}{\normalfont\fontsize{12}{12}\selectfont}
-\renewcommand{\cftfigpagefont}{\normalfont\fontsize{12}{12}\selectfont}
-\renewcommand{\cfttabfont}{\normalfont\fontsize{12}{12}\selectfont}
-\renewcommand{\cfttabpagefont}{\normalfont\fontsize{12}{12}\selectfont}
+\renewcommand{\cftfigfont}{\normalfont}
+\renewcommand{\cftfigpagefont}{\normalfont}
+\renewcommand{\cfttabfont}{\normalfont}
+\renewcommand{\cfttabpagefont}{\normalfont}
 
 \renewcommand{\cftfigpresnum}{Figura }
-\setlength{\cftfignumwidth}{5.5em}
-
+\renewcommand{\cftfigaftersnum}{ --}
 \renewcommand{\cfttabpresnum}{Quadro }
-\setlength{\cfttabnumwidth}{5.5em}
+\renewcommand{\cfttabaftersnum}{ --}
+
+\newlength{\listnumwidth}
+\settowidth{\listnumwidth}{Quadro 99 --\hspace{0.6em}}
+\cftsetindents{figure}{0pt}{\listnumwidth}
+\cftsetindents{table}{0pt}{\listnumwidth}
 
 \setlength{\cftbeforefigskip}{0pt}
 \setlength{\cftbeforetabskip}{0pt}
@@ -126,44 +175,113 @@
     {\renewcommand{\cfttabpresnum}{Tabela }\l@table{#1}{#2}}%
 }
 \newcommand{\listofdatatables}{\@starttoc{lotb}}
+
+\newcommand{\printlist}[1]{{\let\addvspace\@gobble #1}}
 \makeatother
 
-\providecommand{\listtitle}[1]{%
-    \begin{center}%
-        \fontsize{14pt}{14pt}\selectfont\bfseries #1%
-    \end{center}%
-    \vspace{4pt}%
-}
-
 \newcommand{\unnumberedtitle}[1]{%
+    {\centering\normalfont\bfseries #1\par}%
+    \vspace{\baselineskip}%
+}
+
+\newcommand{\postextualtitle}[1]{%
+    \phantomsection
+    \addcontentsline{toc}{chapter}{\protect\numberline{}#1}%
+    \unnumberedtitle{#1}%
+}
+
+\newcommand{\appendixtitle}[2]{\postextualtitle{APÊNDICE #1 -- \uppercasetitle{#2}}}
+\newcommand{\annextitle}[2]{\postextualtitle{ANEXO #1 -- \uppercasetitle{#2}}}
+
+\newcommand{\examinerfield}[3]{%
     \begin{center}%
-        \fontsize{14pt}{14pt}\selectfont\bfseries #1\\[24pt]%
+        \setstretch{1}%
+        \vspace*{1cm}%
+        \rule{9cm}{0.4pt}\\
+        #1\\
+        #2\\
+        #3%
     \end{center}%
 }
 
-\newcommand{\appendixtitle}[2]{%
-    \addcontentsline{toc}{chapter}{APÊNDICE #1}%
-    \begin{center}%
-        \fontsize{14pt}{14pt}\selectfont\bfseries APÊNDICE #1\\[12pt]%
-        \fontsize{12pt}{12pt}\selectfont #2%
-    \end{center}%
+\newenvironment{longquote}{%
+    \list{}{%
+        \setlength{\leftmargin}{4cm}%
+        \setlength{\rightmargin}{0pt}%
+        \setlength{\itemindent}{0pt}%
+        \setlength{\listparindent}{0pt}%
+        \setlength{\parsep}{0pt}%
+        \setlength{\topsep}{12pt}%
+        \setlength{\partopsep}{0pt}%
+    }%
+    \item\relax\setstretch{1}\fontsize{10pt}{12pt}\selectfont
+}{\endlist}
+
+\newlist{alineas}{enumerate}{1}
+\setlist[alineas]{label=\alph*), labelindent=\parindent, leftmargin=*, topsep=0pt, partopsep=0pt, itemsep=0pt, parsep=0pt}
+\newlist{subalineas}{itemize}{1}
+\setlist[subalineas]{label=--, labelindent=0pt, leftmargin=*, topsep=0pt, partopsep=0pt, itemsep=0pt, parsep=0pt}
+
+\makeatletter
+\newenvironment{indexentries}{\par\setlength{\parindent}{0pt}\let\item\@idxitem}{\par}
+
+\renewcommand{\footnoterule}{\kern-3pt\hrule width 5cm\kern2.6pt}
+\renewcommand{\@makefntext}[1]{%
+    \setlength{\parindent}{0pt}%
+    \settowidth{\@tempdima}{\@makefnmark\hspace{0.25em}}%
+    \hangindent\@tempdima\hangafter\@ne
+    \noindent\@makefnmark\hspace{0.25em}#1%
 }
 
-\newcommand{\examinerfield}{%
-    \noindent Prof. \rule{12cm}{0.4pt}\\%
-    Instituição: \rule{10.5cm}{0.4pt}\par%
+\newcount\lt@breaks
+\newdimen\lt@width
+\newcommand{\lt@setbreaks}[2]{\expandafter\xdef\csname lt@breaks@#1\endcsname{#2}}
+\newcommand{\lt@markline}[1]{%
+    \global\lt@width\z@
+    \begingroup
+        \def\LT@entry##1##2{\global\advance\lt@width##2\relax}%
+        \csname LT@\romannumeral\c@LT@tables\endcsname
+    \endgroup
+    \ifdim\lt@width=\z@\global\lt@width\hsize\fi
+    \hbox to\hsize{\hskip\LTleft\hbox to\lt@width{\hfil\normalfont\fontsize{10pt}{12pt}\selectfont(#1)}\hskip\LTright}%
+    \nobreak
 }
+\newcommand{\lt@headmark}{%
+    \global\advance\lt@breaks\@ne
+    \ifnum\lt@breaks=0\csname lt@breaks@\romannumeral\c@LT@tables\endcsname\relax
+        \lt@markline{conclusão}%
+    \else
+        \lt@markline{continuação}%
+    \fi
+}
+\newcommand{\continuesmark}{%
+    \noalign{%
+        \ifnum\z@<0\csname lt@breaks@\romannumeral\c@LT@tables\endcsname\relax
+            \lt@markline{continua}%
+        \fi
+    }%
+}
+\patchcmd{\LT@output}{\copy\LT@head\nobreak}{\lt@headmark\copy\LT@head\nobreak}{}
+    {\PackageWarningNoLine{settings}{Could not add split table marks}}
+\patchcmd{\LT@output}{\setbox\z@\vbox{\box\LT@head}}{\setbox\z@\vbox{\lt@headmark\box\LT@head}}{}
+    {\PackageWarningNoLine{settings}{Could not add split table marks}}
+\AtBeginEnvironment{longtable}{\setstretch{1}\global\lt@breaks\z@}
+\AfterEndEnvironment{longtable}{%
+    \immediate\write\@auxout{\string\lt@setbreaks{\romannumeral\c@LT@tables}{\the\lt@breaks}}%
+}
+\makeatother
 
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[R]{\thepage}
+\fancyhead[R]{\fontsize{10pt}{12pt}\selectfont\thepage}
 \renewcommand{\headrulewidth}{0pt}
 
 \fancypagestyle{plain}{
     \fancyhf{}
-    \fancyhead[R]{\thepage}
+    \fancyhead[R]{\fontsize{10pt}{12pt}\selectfont\thepage}
     \renewcommand{\headrulewidth}{0pt}
 }
 
 \counterwithout{figure}{chapter}
 \counterwithout{table}{chapter}
+\counterwithout{equation}{chapter}

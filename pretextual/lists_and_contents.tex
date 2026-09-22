@@ -1,33 +1,34 @@
 \newpage
-\thispagestyle{empty}
-\listtitle{LISTA DE ILUSTRAÇÕES}
-{\singlespacing\listoffigures}
-\thispagestyle{empty}
+\unnumberedtitle{LISTA DE ILUSTRAÇÕES}
+\printlist{\listoffigures}
 
 \newpage
-\thispagestyle{empty}
-\listtitle{LISTA DE QUADROS}
-{\singlespacing\listoftables}
-\thispagestyle{empty}
+\unnumberedtitle{LISTA DE QUADROS}
+\printlist{\listoftables}
 
 \newpage
-\thispagestyle{empty}
-\listtitle{LISTA DE TABELAS}
-{\singlespacing\listofdatatables}
-\thispagestyle{empty}
+\unnumberedtitle{LISTA DE TABELAS}
+\printlist{\listofdatatables}
 
 \newpage
-\thispagestyle{empty}
-\listtitle{LISTA DE SIGLAS E ABREVIATURAS}
+\unnumberedtitle{LISTA DE ABREVIATURAS E SIGLAS}
 
-{\singlespacing\begin{tabbing}
+\begin{tabbing}
     \hspace{3cm}\=\kill
-    SIGLA \> Significado por extenso\\[6pt]
+    SIGLA \> Significado por extenso\\
     SIGLA \> \textit{Significado por extenso em língua estrangeira}\\
-\end{tabbing}}
+\end{tabbing}
 
 \newpage
-\thispagestyle{empty}
-\listtitle{SUMÁRIO}
-{\singlespacing\tableofcontents}
-\thispagestyle{empty}
+\unnumberedtitle{LISTA DE SÍMBOLOS}
+
+\begin{tabbing}
+    \hspace{3cm}\=\kill
+    $\Omega$ \> Ohm, unidade de medida de resistência elétrica\\
+    $\Delta$ \> Variação\\
+    $\sum$ \> Somatório\\
+\end{tabbing}
+
+\newpage
+\unnumberedtitle{SUMÁRIO}
+\printlist{\tableofcontents}

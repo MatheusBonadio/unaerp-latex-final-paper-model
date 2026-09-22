@@ -1,33 +1,24 @@
 \newpage
-\thispagestyle{empty}
-\unnumberedtitle{FOLHA DE APROVAÇÃO}
-
-\noindent \authorOneId{} -- \MakeUppercase{\authorOne}\par
-% \noindent \authorTwoId{} -- \MakeUppercase{\authorTwo}\par
-% \noindent \authorThreeId{} -- \MakeUppercase{\authorThree}\par
+\begin{center}
+    \setstretch{1}
+    \MakeUppercase{\authorOne}\\
+    % \MakeUppercase{\authorTwo}\\
+    % \MakeUppercase{\authorThree}\\
+    \MakeUppercase{\workTitle: \workSubtitle}
+\end{center}
 \vspace{\baselineskip}
-\noindent \MakeUppercase{\workTitle: \workSubtitle}\par
-\vspace{12pt}
 
 \begin{flushright}
     \parbox{8cm}{
-        \fontsize{12pt}{12pt}\selectfont
-        \workNature\\[12pt]
-        Orientador: \advisorName
+        \setstretch{1}
+        \workNature
     }
 \end{flushright}
+\vspace{\baselineskip}
 
-\noindent Aprovada em: \_\_\_\_/\_\_\_\_/\_\_\_\_\_\_\_\_\par
-\vspace{24pt}
+\noindent Aprovação: \_\_\_\_/\_\_\_\_/\_\_\_\_\_\_\_\_\par
 
-\begin{center}
-    Banca Examinadora
-\end{center}\vspace{24pt}
-
-\examinerfield
-\vspace{18pt}
-
-\examinerfield
-\vspace{18pt}
-
-\examinerfield
+\examinerfield{\advisorName}{\advisorInstitution}{Orientador}
+\ifdefempty{\coadvisorName}{}{\examinerfield{\coadvisorName}{\coadvisorInstitution}{Coorientador}}
+\examinerfield{\examinerOneName}{\examinerOneInstitution}{Examinador}
+\examinerfield{\examinerTwoName}{\examinerTwoInstitution}{Examinador}
