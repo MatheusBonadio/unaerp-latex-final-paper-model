@@ -1,13 +1,18 @@
 \newpage
-\vspace*{\fill}
-\begin{center}
-    \setlength{\fboxsep}{0pt}%
-    \fbox{%
-        \begin{minipage}[c][\dimexpr 7.5cm-2\fboxrule\relax][c]{\dimexpr 12.5cm-2\fboxrule\relax}
-            \centering\setstretch{1}\fontsize{10pt}{12pt}\selectfont
-            \textbf{FICHA CATALOGRÁFICA}\\[6pt]
-            Gerar no Aluno Online (Ferramentas > Ficha catalográfica)\\
-            e inserir neste espaço (12,5 cm x 7,5 cm).
-        \end{minipage}%
-    }
-\end{center}
+\ifdefempty{\catalogCardFile}{%
+    \vspace*{\fill}
+    \begin{center}
+        \setlength{\fboxsep}{0pt}%
+        \fbox{%
+            \begin{minipage}[c][\dimexpr 7.5cm-2\fboxrule\relax][c]{\dimexpr 12.5cm-2\fboxrule\relax}
+                \centering\setstretch{1}\fontsize{10pt}{12pt}\selectfont
+                \textbf{FICHA CATALOGRÁFICA}\\[6pt]
+                Gerar no Aluno Online (Ferramentas > Ficha catalográfica),\\
+                exportar o arquivo .docx para PDF e informar\\
+                o caminho do PDF em config/metadata.tex.
+            \end{minipage}%
+        }
+    \end{center}
+}{%
+    \includepdf{\catalogCardFile}%
+}

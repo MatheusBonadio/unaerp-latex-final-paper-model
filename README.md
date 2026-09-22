@@ -31,7 +31,12 @@ docs/
 ## Notes
 
 - Page counting starts at the title page; the cover, the back of the title page and the errata are not counted, and page numbers are shown from the introduction on.
-- `pretextual/catalog_card.tex` reserves the back of the title page for the catalog card (mandatory). Generate it at Aluno Online > Ferramentas > Ficha catalográfica and replace the 12.5 cm × 7.5 cm placeholder box at the bottom of that page, for example with `\includegraphics[width=12.5cm]{images/ficha_catalografica.pdf}`.
+- The back of the title page holds the catalog card (mandatory), included from `pretextual/FichaCatalografica.pdf`, which is only an example. To use your own:
+  1. Generate it at Aluno Online > Ferramentas > Ficha catalográfica (the file is generated as `.docx`).
+  2. Export the `.docx` to PDF (for example, File > Save As > PDF in Word).
+  3. Replace `pretextual/FichaCatalografica.pdf` with the exported PDF, keeping the same name. To use another name or folder, set its path in `\catalogCardFile` (`config/metadata.tex`).
+
+  The page is included as generated. When `\catalogCardFile` is empty, a 12.5 cm × 7.5 cm placeholder box is shown.
 - Primary and secondary section titles are converted to uppercase automatically; tertiary titles use initial capitals, quaternary titles use sentence case and quinary titles (`\paragraph`) are set in italics.
 - Citations follow ABNT NBR 10520:2023: authors in parentheses use upper and lower case, e.g. `(Sobrenome, ano, p. 00)`.
 
