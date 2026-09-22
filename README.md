@@ -1,13 +1,14 @@
 # UNAERP LaTeX Final Paper Model
 
-LaTeX template for undergraduate final papers (TCC) at the University of Ribeirão Preto (UNAERP), following ABNT standards and the UNAERP library reference manual.
+LaTeX template for undergraduate final papers (TCC) at the University of Ribeirão Preto (UNAERP), following ABNT standards and the UNAERP library manuals in `docs/`.
 
 ## Usage
 
 1. Upload the project to [Overleaf](https://www.overleaf.com) (or use a local TeX distribution).
 2. Set the compiler to **XeLaTeX** and the main document to `main.tex`.
-3. Fill in your data in `config/metadata.tex` (authors, advisor, title, year, institution).
-4. Write your content in `chapters/` and compile twice so lists and references are updated.
+3. Fill in your data in `config/metadata.tex` (authors, advisor, co-advisor, examining board, title, year, institution). The co-advisor is only printed when `\coadvisorName` is not empty.
+4. Write your content in `chapters/` and compile twice so lists, references and split table marks are updated.
+5. Remove the optional elements you do not need from `main.tex` (errata, dedication, acknowledgments, epigraph, lists, glossary, appendices, annexes and index).
 
 ## Structure
 
@@ -17,24 +18,40 @@ config/
   packages.tex           Packages
   settings.tex           Layout, captions, lists and helper commands
   metadata.tex           Paper data (authors, title, year...)
-pretextual/              Cover, title page, approval sheet, abstracts, lists
-chapters/                Main content
-postextual/              References and appendices
+pretextual/              Cover, title page, catalog card, errata, approval sheet, abstracts, lists
+chapters/                Introduction, development and conclusion
+postextual/              References, glossary, appendices, annexes and index
 images/                  Figures
-reference-manual.pdf     UNAERP reference manual (ABNT NBR 6023)
+docs/
+  manual.pdf             UNAERP manual for presenting scientific papers (formatting)
+  citation-manual.pdf    UNAERP citation manual (ABNT NBR 10520)
+  reference-manual.pdf   UNAERP reference manual (ABNT NBR 6023)
 ```
+
+## Notes
+
+- Page counting starts at the title page; the cover, the back of the title page and the errata are not counted, and page numbers are shown from the introduction on.
+- `pretextual/catalog_card.tex` reserves the back of the title page for the catalog card (mandatory). Generate it at Aluno Online > Ferramentas > Ficha catalográfica and replace the 12.5 cm × 7.5 cm placeholder box at the bottom of that page, for example with `\includegraphics[width=12.5cm]{images/ficha_catalografica.pdf}`.
+- Primary and secondary section titles are converted to uppercase automatically; tertiary titles use initial capitals, quaternary titles use sentence case and quinary titles (`\paragraph`) are set in italics.
+- Citations follow ABNT NBR 10520:2023: authors in parentheses use upper and lower case, e.g. `(Sobrenome, ano, p. 00)`.
 
 ## Helper commands
 
 | Command | Description |
 |---|---|
-| `\authorssource` | "Fonte: Elaborado pelos autores (year)." below figures and tables |
+| `\authorssource` | Source note below figures and tables, with the text of `\sourceText` in `config/metadata.tex` |
 | `\sourcenote{text}` | Custom source note |
-| `\sourcerow{n}` / `\continuedrow{n}` | Source and "continued" rows for `longtable` |
-| `\captionof{tabela}{title}` | Caption for tables (listed in "Lista de Tabelas") |
+| `\sourcerow{n}` | Source row for the last foot of a `longtable` |
+| `\continuesmark` | Placed after the caption in `\endfirsthead`: prints "(continua)" when the table breaks; "(continuação)" and "(conclusão)" are added to the following pages automatically |
+| `\begin{tabela}` / `\caption` | Tables (listed in "Lista de Tabelas"); `table` is used for frames (quadros) |
+| `\begin{longquote}` | Direct quotation with more than three lines |
+| `\begin{alineas}` / `\begin{subalineas}` | Lettered items `a)` and dashed subitems |
 | `\unnumberedtitle{text}` | Centered unnumbered title |
-| `\appendixtitle{letter}{title}` | Appendix heading with table of contents entry |
+| `\postextualtitle{text}` | Unnumbered post-textual title with table of contents entry |
+| `\appendixtitle{letter}{title}` / `\annextitle{letter}{title}` | Appendix and annex headings with table of contents entry |
+| `\examinerfield{name}{institution}{role}` | Signature line for the approval sheet |
+| `\begin{indexentries}` | Index entries with `\item`, `\subitem` and `\subsubitem` |
 
 ## License
 
-The template source is released under the [MIT License](LICENSE). `reference-manual.pdf` belongs to the UNAERP library and is not covered by this license.
+The template source is released under the [MIT License](LICENSE). The PDF manuals in `docs/` belong to the UNAERP library and are not covered by this license.
