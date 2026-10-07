@@ -4,7 +4,7 @@
     % \MakeUppercase{\authorTwo}\par
     % \MakeUppercase{\authorThree}\par
     \vspace{4cm}
-    \MakeUppercase{\workTitle: \workSubtitle}\par
+    \ifdefempty{\workSubtitle}{\MakeUppercase{\workTitle}}{\MakeUppercase{\workTitle: \workSubtitle}}\par
 \end{center}
 \vspace{3cm}
 \begin{flushright}

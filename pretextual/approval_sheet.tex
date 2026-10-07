@@ -4,7 +4,7 @@
     \MakeUppercase{\authorOne}\\
     % \MakeUppercase{\authorTwo}\\
     % \MakeUppercase{\authorThree}\\
-    \MakeUppercase{\workTitle: \workSubtitle}
+    \ifdefempty{\workSubtitle}{\MakeUppercase{\workTitle}}{\MakeUppercase{\workTitle: \workSubtitle}}
 \end{center}
 \vspace{\baselineskip}
 

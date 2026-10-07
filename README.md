@@ -6,7 +6,7 @@ LaTeX template for undergraduate final papers (TCC) at the University of Ribeir�
 
 1. Upload the project to [Overleaf](https://www.overleaf.com) (or use a local TeX distribution).
 2. Set the compiler to **XeLaTeX** and the main document to `main.tex`.
-3. Fill in your data in `config/metadata.tex` (authors, advisor, co-advisor, examining board, title, year, institution). The co-advisor is only printed when `\coadvisorName` is not empty.
+3. Fill in your data in `config/metadata.tex` (authors, advisor, co-advisor, examining board, title, year, institution). The co-advisor is only printed when `\coadvisorName` is not empty, and the subtitle only when `\workSubtitle` (or `\workSubtitleEnglish`) is not empty.
 4. Write your content in `chapters/` and compile twice so lists, references and split table marks are updated.
 5. Remove the optional elements you do not need from `main.tex` (errata, dedication, acknowledgments, epigraph, lists, glossary, appendices, annexes and index).
 
@@ -39,6 +39,9 @@ docs/
   The page is included as generated. When `\catalogCardFile` is empty, a 12.5 cm × 7.5 cm placeholder box is shown.
 - Primary and secondary section titles are converted to uppercase automatically; tertiary titles use initial capitals, quaternary titles use sentence case and quinary titles (`\paragraph`) are set in italics.
 - Citations follow ABNT NBR 10520:2023: authors in parentheses use upper and lower case, e.g. `(Sobrenome, ano, p. 00)`.
+- Figures, frames and tables use `[htbp]` so they are placed as close as possible to the text that cites them, as required by the UNAERP manual: `flafter` keeps them from appearing before their citation and `placeins` keeps them inside their section. Use `[H]` only to pin a specific float in place.
+- Use a table (`tabela`) when numeric data is the central information, following the IBGE tabular presentation rules (open sides, rules only at the top, below the header and at the bottom). Use a frame (`table`, "Quadro") for textual information, with closed borders.
+- Long entries in the table of contents and in the lists are set ragged right instead of justified.
 
 ## Helper commands
 
@@ -49,6 +52,7 @@ docs/
 | `\sourcerow{n}` | Source row for the last foot of a `longtable` |
 | `\continuesmark` | Placed after the caption in `\endfirsthead`: prints "(continua)" when the table breaks; "(continuação)" and "(conclusão)" are added to the following pages automatically |
 | `\begin{tabela}` / `\caption` | Tables (listed in "Lista de Tabelas"); `table` is used for frames (quadros) |
+| `L{width}` | Left-aligned paragraph column for frames, used instead of `p{width}` to avoid stretched lines in narrow cells |
 | `\begin{longquote}` | Direct quotation with more than three lines |
 | `\begin{alineas}` / `\begin{subalineas}` | Lettered items `a)` and dashed subitems |
 | `\unnumberedtitle{text}` | Centered unnumbered title |

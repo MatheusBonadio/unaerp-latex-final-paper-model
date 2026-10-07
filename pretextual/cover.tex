@@ -8,7 +8,7 @@
     % \MakeUppercase{\authorTwo}\par
     % \MakeUppercase{\authorThree}\par
     \vspace{4cm}
-    {\setstretch{1.5}\MakeUppercase{\workTitle: \workSubtitle}\par}
+    {\setstretch{1.5}\ifdefempty{\workSubtitle}{\MakeUppercase{\workTitle}}{\MakeUppercase{\workTitle: \workSubtitle}}\par}
     \vfill
     \MakeUppercase{\workCity}\\
     \workYear
